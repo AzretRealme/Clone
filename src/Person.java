@@ -1,4 +1,4 @@
-public class Person implements Cloneable{
+public class Person{
 
        private String name;
        private int age;
