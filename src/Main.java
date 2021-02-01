@@ -1,16 +1,15 @@
-import java.util.ArrayList;
 public class Main {
-    public static void main(String[] args)throws CloneNotSupportedException{
+    public static void main(String[] args) throws CloneNotSupportedException {
+        //Object.clone() выбрасывает исключение CloneNotSupportedException
+        // при попытке клонировать объект не реализующий интерфейс Cloneable.
 
-        Person original = new Person(25,"Mike");
+      Person person = new Person("Michael");
+      Person person1 = (Person) person.clone();  //Клонируем person1
+        //Механизм копирования обеспечивает метод clone() класса Object.
 
-        Person clone = new Person(original);
-        System.out.println(original);
-        System.out.println(clone);
-
-      //Механизм копирования обеспечивает метод clone() класса Object.
-        //clone() действует как конструктор копирования. Обычно он вызывает метод clone() суперкласса и т.д.
-
-    }
-
+        System.out.println(person.getName());
+        System.out.println(person1.getName());
+        System.out.println(person.getClass().equals(person1.getClass()));
+        System.out.println(person.equals(person1));
+}
 }
